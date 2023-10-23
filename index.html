@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./assets/css/style.css">
+        <title>Mag's JS Quizathon</title>
+    </head>
+
+    <body>
+        <header>
+            <article class="leaderboard-head">
+                <a href="leaderboard.html"><button id="view-high-scores">Leaderboard</button></a>
+            </article>
+        
+            <article class="timer">
+                <p><button id="timer-button">Time left: <span id="timer"> 0</span></button></p>
+            </article>
+        </header>
+        
+        <main class="quiz">
+            <section id="quiz-start">
+                <article class="home-screen" id="start-screen">
+                    <h1>JavaScript Quizathon</h1>
+                    <p></p>
+                    <button id="start">Start Quiz</button>
+                </article>
+            </section>
+
+            <section class="hide" id="questions">
+                <h2 id="question-words"></h2>
+                <article class="options" id="options"></article>
+            </section>
+
+            <section class="hide" id="quiz-end">
+                <h2>Finished</h2>
+                <p>Your final score is: <span id="score-final"></span></p>
+                <p>Please enter your name: <input type="text" id="name" max="3" />
+                    <button id="submit-score">Submit</button>
+                    <button id="Re-Start">Re-Start</button>
+                </p>
+            </section>
+
+            <div id="feedback" class="feedback hide"></div>
+        </main>
+        <script src="./assets/js/script.js"></script>
+    </body>
+</html>
