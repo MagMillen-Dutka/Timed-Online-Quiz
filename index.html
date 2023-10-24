@@ -23,8 +23,16 @@
             <section id="quiz-start">
                 <article class="home-screen" id="start-screen">
                     <h1>JavaScript Quizathon</h1>
-                    <p></p>
+                    <p>Game rules: </p>
+                    
+                    <li>Each game is timed.</li>
+                    <li>Timer starts at 90 seconds.</li>
+                    <li>You will be asked multiple choice questions.</li>
+                    <li>For each incorrect answer you will lose 10 seconds.</li>
+                
+                    <P>Good luck!</P>
                     <button id="start">Start Quiz</button>
+                    
                 </article>
             </section>
 
@@ -34,16 +42,18 @@
             </section>
 
             <section class="hide" id="quiz-end">
-                <h2>Finished</h2>
+                <h2>You have finished!</h2>
                 <p>Your final score is: <span id="score-final"></span></p>
-                <p>Please enter your name: <input type="text" id="name" max="3" />
+                <p>Please enter your initials: <input type="text" id="name" max="3" />
                     <button id="submit-score">Submit</button>
-                    <button id="Re-Start">Re-Start</button>
+                    <a href="index.html"><button>Restart</button></a>
                 </p>
             </section>
 
-            <div id="feedback" class="feedback hide"></div>
+            <section id="feedback" class="feedback hide"></section>
         </main>
+
         <script src="./assets/js/script.js"></script>
+    
     </body>
 </html>

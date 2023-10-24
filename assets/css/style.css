@@ -32,7 +32,6 @@ button {
     color: #fff;
     background-color: #6009b7;
     border-radius: 5px;
-   
 }
 
 button:hover {
@@ -69,10 +68,6 @@ ol {
   li {
     padding: 5px;
     list-style: decimal inside none;
-}
-  
-  li:nth-child(odd) {
-    background-color: #dfdae7;
 }
 
 /* This will be applied on any screen smaller than 768px */

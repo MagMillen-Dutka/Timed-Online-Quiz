@@ -1,1 +1,60 @@
-# UBHM-04-Web-APIs-02-Challenge
+# Web APIs Challenge (Timed quiz)
+## Description
+
+This project worked on using the skills learnt in JavaScript to be able to create basic level functionality for a website page - specifically the creation of a password generator with prompts used for the user to understand key criteria.
+
+The index.html and style.css files were already created, but the website lacked the necessary functionality of JavaScript.
+
+It follows the user story and acceptance criteria detailed below.
+
+## User Story
+
+```
+AS A coding boot camp student
+I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
+SO THAT I can gauge my progress compared to my peers
+```
+
+## Acceptance Criteria
+
+```
+GIVEN I am taking a code quiz
+WHEN I click the start button
+THEN a timer starts and I am presented with a question
+WHEN I answer a question
+THEN I am presented with another question
+WHEN I answer a question incorrectly
+THEN time is subtracted from the clock
+WHEN all questions are answered or the timer reaches 0
+THEN the game is over
+WHEN the game is over
+THEN I can save my initials and my score
+```
+
+## Installation
+```
+n/a
+```
+## Usage
+```
+Please find the source code located here: 
+
+
+Opening this file will allow the JavaScript code to be read and evaluated.
+
+Website can be found here: 
+
+
+Opening this site will allow the user to be able to visually see, and physically test the password generator tool.
+
+```
+## Credits
+```
+n/a
+```
+## License
+```
+For licensing details please see "LICENSE" details within the repository.
+
+MIT License is used for this project.
+```

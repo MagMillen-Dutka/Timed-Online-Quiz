@@ -1,37 +1,38 @@
 
 var questions = [
     {
+        prompt: "Where is the correct place to insert JavaScript?",
+        options: ["<head>", "<footer>", "<body>", "<all of the above>"],
+        answer: "<body>"
+    },
+    {
+        prompt: "How does a FOR loop start?",
+        options: ["for (i = 0; i <= 5)", "for (i = 0; i <= 5; i++)", "for (i = 5)", "for (i = 0; i++)"],
+      answer: "for (i = 0; i <= 5; i++)"
+    },
+    {
         prompt: "Inside which HTML element do we put the JavaScript?",
         options: ["<javascript>", "<js>", "<script>", "<scripting>"],
         answer: "<script>"
     },
-
     {
         prompt: "How do you call a function named myFunction?",
         options: ["call myFunction()", "myFunction()", "call function myFunction", "Call.myFunction"],
         answer: "myFunction()"
     },
-
-    {
-        prompt: "How does a for loop start?",
-        options: ["for (i = 0; i <= 5; i++)", "for (i = 0; i <= 5)", "for i = 1 to 5", " for (i <= 5; i++)"],
-        answer: "for (i = 0; i <= 5; i++)"
-    },
-
     {
         prompt: "In JavaScript, which of the following is a logical operator?",
         options: ["|", "&&", "%", "/"],
         answer: "&&" 
     },
-
     {
         prompt: "A named element in a JavaScript program that is used to store and retrieve data is a _____.",
         options: ["method", "assignment operator", "variable", "string"],
         answer: "variable"
     }];
 
-// Get Dom Elements
-
+// DOM Elements
+// var randomIndex = document.querySelector("#randomq");
 var questionsEl = document.querySelector("#questions");
 var timerEl = document.querySelector("#timer");
 var choicesEl = document.querySelector("#options");
@@ -40,7 +41,6 @@ var startBtn = document.querySelector("#start");
 var nameEl = document.querySelector("#name");
 var feedbackEl = document.querySelector("#feedback");
 var reStartBtn = document.querySelector("#restart");
-// var timertext = document.querySelector('#showbutton').textContent = 'Time left: ';
 
 // Quiz's initial state
 
@@ -61,8 +61,9 @@ function quizStart() {
 
 // Loop through array of questions and answers and create list with buttons
 
-function getQuestion() {
-    var currentQuestion = questions[currentQuestionIndex];
+
+  function getQuestion() {
+  var currentQuestion = questions[currentQuestionIndex];
   var promptEl = document.getElementById("question-words")
     promptEl.textContent = currentQuestion.prompt;
     choicesEl.innerHTML = "";
@@ -84,11 +85,6 @@ function questionClick() {
         time = 0;
       }
       timerEl.textContent = time;
-      feedbackEl.textContent = `Wrong! The correct answer was ${questions[currentQuestionIndex].answer}.`;
-      feedbackEl.style.color = "red";
-    } else {
-      feedbackEl.textContent = "Correct!";
-      feedbackEl.style.color = "green";
     }
     feedbackEl.setAttribute("class", "feedback");
     setTimeout(function() {
@@ -125,17 +121,17 @@ function clockTick() {
 
 // Save score in local storage along with users' name
 
-function saveHighscore() {
+function saveLeaderboard() {
     var name = nameEl.value.trim();
     if (name !== "") {
-      var highscores =
-        JSON.parse(window.localStorage.getItem("highscores")) || [];
+      var leaderboard =
+        JSON.parse(window.localStorage.getItem("leaderboard")) || [];
       var newScore = {
         score: time,
         name: name
       };
-      highscores.push(newScore);
-      window.localStorage.setItem("highscores", JSON.stringify(highscores));
+      leaderboard.push(newScore);
+      window.localStorage.setItem("leaderboard", JSON.stringify(leaderboard));
     }
 }
 
@@ -143,15 +139,16 @@ function saveHighscore() {
 
 function checkForEnter(event) {
     if (event.key === "Enter") {
-        saveHighscore();
+        saveLeaderboard();
     }
 }
 nameEl.onkeyup = checkForEnter;
 
 // Save users' score after clicking submit
 
-submitBtn.onclick = saveHighscore;
+submitBtn.onclick = saveLeaderboard;
 
-// Start quiz after clicking start quiz
+
+// start / restart buttons - Added additional button for re-start following completion of game. Gives users choice between submitting score or restarting at end of game.
 
 startBtn.onclick = quizStart;
