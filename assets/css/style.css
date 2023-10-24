@@ -17,8 +17,8 @@
     max-width: 400px;
 }
 
-p {
-    margin: 15px 15px;
+p, h1, h2 {
+    margin: 10px 10px;
 }
 
 .landing {
@@ -29,9 +29,9 @@ button {
     margin: 10px;
     padding: 10px;
     cursor: pointer;
-    color: #fff;
-    background-color: #6009b7;
-    border-radius: 5px;
+    color: #000000;
+    background-color: #665cff;
+    border-radius: 6px;
 }
 
 button:hover {

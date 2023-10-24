@@ -31,8 +31,8 @@ var questions = [
         answer: "variable"
     }];
 
-// DOM Elements
-// var randomIndex = document.querySelector("#randomq");
+// variables
+
 var questionsEl = document.querySelector("#questions");
 var timerEl = document.querySelector("#timer");
 var choicesEl = document.querySelector("#options");
@@ -41,14 +41,12 @@ var startBtn = document.querySelector("#start");
 var nameEl = document.querySelector("#name");
 var feedbackEl = document.querySelector("#feedback");
 var reStartBtn = document.querySelector("#restart");
-
-// Quiz's initial state
-
-var currentQuestionIndex = 0;
+var choiceBtn = document.createElement("button");
+var Index = 0;
 var time = questions.length * 15;
 var timerId;
 
-// Start quiz and hide frontpage
+// When quiz starts this kicks in
 
 function quizStart() {
     timerId = setInterval(clockTick, 1000);
@@ -63,12 +61,12 @@ function quizStart() {
 
 
   function getQuestion() {
-  var currentQuestion = questions[currentQuestionIndex];
+  var currentQuestion = questions[Index];
   var promptEl = document.getElementById("question-words")
     promptEl.textContent = currentQuestion.prompt;
     choicesEl.innerHTML = "";
     currentQuestion.options.forEach(function(choice, i) {
-        var choiceBtn = document.createElement("button");
+        // var choiceBtn = document.createElement("button");
         choiceBtn.setAttribute("value", choice);
         choiceBtn.textContent = i + 1 + ". " + choice;
         choiceBtn.onclick = questionClick;
@@ -79,7 +77,7 @@ function quizStart() {
 // Check for right answers and deduct time for wrong answer, go to next question
 
 function questionClick() {
-    if (this.value !== questions[currentQuestionIndex].answer) {
+    if (this.value !== questions[Index].answer) {
       time -= 10;
       if (time < 0) {
         time = 0;
@@ -90,8 +88,8 @@ function questionClick() {
     setTimeout(function() {
       feedbackEl.setAttribute("class", "feedback hide");
     }, 2000);
-    currentQuestionIndex++;
-    if (currentQuestionIndex === questions.length) {
+    Index++;
+    if (Index === questions.length) {
       quizEnd();
     } else {
       getQuestion();
