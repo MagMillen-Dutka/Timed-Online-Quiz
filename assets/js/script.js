@@ -96,7 +96,7 @@ function questionClick() {
     }
 }
 
-// End quiz by hiding questions, stop timer and show final score
+// End quiz by hiding questions and stopping timing
 
 function quizEnd() {
     clearInterval(timerId);
@@ -107,8 +107,6 @@ function quizEnd() {
     questionsEl.setAttribute("class", "hide");
 }
 
-// End quiz if timer reaches 0
-
 function clockTick() {
     time--;
     timing.textContent = time;
@@ -117,7 +115,7 @@ function clockTick() {
     }
 }
 
-// Save score in local storage along with users' name
+// local storage of leaderboard - this can be erased with button
 
 function saveLeaderboard() {
     var name = nameEl.value;
@@ -132,8 +130,6 @@ function saveLeaderboard() {
       window.localStorage.setItem("leaderboard", JSON.stringify(leaderboard));
     }
 }
-
-// Save users' score after pressing enter
 
 function checkForEnter(event) {
     if (event.key === "Enter") {
