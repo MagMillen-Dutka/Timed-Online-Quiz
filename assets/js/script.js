@@ -32,41 +32,41 @@ var questions = [
     }];
 
 // variables
-
+var timing = document.querySelector("#timer");
 var questionsEl = document.querySelector("#questions");
-var timerEl = document.querySelector("#timer");
 var choicesEl = document.querySelector("#options");
-var submitBtn = document.querySelector("#submit-score");
-var startBtn = document.querySelector("#start");
 var nameEl = document.querySelector("#name");
 var feedbackEl = document.querySelector("#feedback");
+var submitBtn = document.querySelector("#submit-score");
+var startBtn = document.querySelector("#start");
 var reStartBtn = document.querySelector("#restart");
-var choiceBtn = document.createElement("button");
+
 var Index = 0;
-var time = questions.length * 15;
+var time = questions.length * 10;
 var timerId;
 
-// When quiz starts this kicks in
+// At start of quiz main screen hidden
 
 function quizStart() {
     timerId = setInterval(clockTick, 1000);
-    timerEl.textContent = time;
+    timing.textContent = time;
     var landingScreenEl = document.getElementById("start-screen");
     landingScreenEl.setAttribute("class", "hide");
     questionsEl.removeAttribute("class");
-    getQuestion();
+    myQuestions();
 }
 
-// Loop through array of questions and answers and create list with buttons
+// Loop for questions
+// Added buttons for questions 
 
 
-  function getQuestion() {
+  function myQuestions() {
   var currentQuestion = questions[Index];
   var promptEl = document.getElementById("question-words")
     promptEl.textContent = currentQuestion.prompt;
     choicesEl.innerHTML = "";
     currentQuestion.options.forEach(function(choice, i) {
-        // var choiceBtn = document.createElement("button");
+        var choiceBtn = document.createElement("button");
         choiceBtn.setAttribute("value", choice);
         choiceBtn.textContent = i + 1 + ". " + choice;
         choiceBtn.onclick = questionClick;
@@ -74,7 +74,7 @@ function quizStart() {
     });
 }
 
-// Check for right answers and deduct time for wrong answer, go to next question
+// Check answers
 
 function questionClick() {
     if (this.value !== questions[Index].answer) {
@@ -82,7 +82,7 @@ function questionClick() {
       if (time < 0) {
         time = 0;
       }
-      timerEl.textContent = time;
+      timing.textContent = time;
     }
     feedbackEl.setAttribute("class", "feedback");
     setTimeout(function() {
@@ -92,7 +92,7 @@ function questionClick() {
     if (Index === questions.length) {
       quizEnd();
     } else {
-      getQuestion();
+      myQuestions();
     }
 }
 
@@ -111,7 +111,7 @@ function quizEnd() {
 
 function clockTick() {
     time--;
-    timerEl.textContent = time;
+    timing.textContent = time;
     if (time <= 0) {
       quizEnd();
     }
@@ -120,7 +120,7 @@ function clockTick() {
 // Save score in local storage along with users' name
 
 function saveLeaderboard() {
-    var name = nameEl.value.trim();
+    var name = nameEl.value;
     if (name !== "") {
       var leaderboard =
         JSON.parse(window.localStorage.getItem("leaderboard")) || [];
