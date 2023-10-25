@@ -1,4 +1,4 @@
-
+//Questions to ask participants
 var questions = [
     {
         prompt: "Where is the correct place to insert JavaScript?",
@@ -8,7 +8,7 @@ var questions = [
     {
         prompt: "How does a FOR loop start?",
         options: ["for (i = 0; i <= 5)", "for (i = 0; i <= 5; i++)", "for (i = 5)", "for (i = 0; i++)"],
-      answer: "for (i = 0; i <= 5; i++)"
+        answer: "for (i = 0; i <= 5; i++)"
     },
     {
         prompt: "Inside which HTML element do we put the JavaScript?",
@@ -31,7 +31,7 @@ var questions = [
         answer: "variable"
     }];
 
-// variables
+// Global variables
 var timing = document.querySelector("#timer");
 var questionsEl = document.querySelector("#questions");
 var choicesEl = document.querySelector("#options");
@@ -45,7 +45,7 @@ var Index = 0;
 var time = questions.length * 10;
 var timerId;
 
-// At start of quiz main screen hidden
+// At start of quiz main screen is hidden and questions appear in place
 
 function quizStart() {
     timerId = setInterval(clockTick, 1000);
@@ -69,14 +69,14 @@ function quizStart() {
         var choiceBtn = document.createElement("button");
         choiceBtn.setAttribute("value", choice);
         choiceBtn.textContent = i + 1 + ". " + choice;
-        choiceBtn.onclick = questionClick;
+        choiceBtn.onclick = timeCheck;
         choicesEl.appendChild(choiceBtn);
     });
 }
 
-// Check answers
+// Check answers and move time down 10 seconds if incorrect.
 
-function questionClick() {
+function timeCheck() {
     if (this.value !== questions[Index].answer) {
       time -= 10;
       if (time < 0) {
@@ -84,10 +84,6 @@ function questionClick() {
       }
       timing.textContent = time;
     }
-    feedbackEl.setAttribute("class", "feedback");
-    setTimeout(function() {
-      feedbackEl.setAttribute("class", "feedback hide");
-    }, 2000);
     Index++;
     if (Index === questions.length) {
       quizEnd();
@@ -120,8 +116,7 @@ function clockTick() {
 function saveLeaderboard() {
     var name = nameEl.value;
     if (name !== "") {
-      var leaderboard =
-        JSON.parse(window.localStorage.getItem("leaderboard")) || [];
+      var leaderboard = JSON.parse(window.localStorage.getItem("leaderboard")) || [];
       var newScore = {
         score: time,
         name: name
