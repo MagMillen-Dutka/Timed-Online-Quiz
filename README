@@ -1,9 +1,11 @@
 # Web APIs Challenge (Timed quiz)
 ## Description
 
-This project worked on using the skills learnt in JavaScript to be able to create basic level functionality for a website page - specifically the creation of a password generator with prompts used for the user to understand key criteria.
+The deployed site was created to combine the use of JavaScript and JQuery coding to create an interactive web page with a game associated to it.
 
-The index.html and style.css files were already created, but the website lacked the necessary functionality of JavaScript.
+The index.html and style.css files were taken from an open source template and modified to match the needs of the site.
+The JavaScript was adapted from previous code I have written, and from anonymouse instructions on websites such as w3schools.com. 
+The code was adapted, re-written or changed to create the functionality to match the below acceptance criteria.
 
 It follows the user story and acceptance criteria detailed below.
 
@@ -43,7 +45,6 @@ https://github.com/MagMillen-Dutka/UBHM-04-Web-APIs-02-Challenge
 Deployed website can be found here: 
 https://magmillen-dutka.github.io/UBHM-04-Web-APIs-02-Challenge/index.html
 
-![deployed site](https://github.com/MagMillen-Dutka/UBHM-04-Web-APIs-02-Challenge/assets/145022728/64b21e50-f025-44ef-a363-628318c800e5)
 
 ```
 ## Credits
