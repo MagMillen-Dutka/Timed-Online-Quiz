@@ -1,3 +1,4 @@
+// Please note - questions for participants must be above global variables otherwise quiz will not work.
 //Questions to ask participants
 var questions = [
     {
@@ -37,7 +38,7 @@ var questionsEl = document.querySelector("#questions");
 var choicesEl = document.querySelector("#options");
 var nameEl = document.querySelector("#name");
 var feedbackEl = document.querySelector("#feedback");
-var submitBtn = document.querySelector("#submit-score");
+var enterBtn = document.querySelector("#submit-score");
 var startBtn = document.querySelector("#start");
 var reStartBtn = document.querySelector("#restart");
 
@@ -45,7 +46,8 @@ var Index = 0;
 var time = questions.length * 10;
 var timerId;
 
-// At start of quiz main screen is hidden and questions appear in place
+// At start of quiz main screen is hidden and questions appear instead. Time in top right corder begins.
+// Time is calculated by number of questions multiplied by seconds per question in "var time" variable.
 
 function quizStart() {
     timerId = setInterval(clockTick, 1000);
@@ -56,8 +58,8 @@ function quizStart() {
     myQuestions();
 }
 
-// Loop for questions
-// Added buttons for questions 
+// Loop for questions - adapted from anonymous source on Stackoverflow to fit this quiz. 
+// Added buttons for questions to loop (var ChoiceBtn)
 
 
   function myQuestions() {
@@ -82,7 +84,7 @@ function timeCheck() {
       if (time < 0) {
         time = 0;
       }
-      timing.textContent = time;
+
     }
     Index++;
     if (Index === questions.length) {
@@ -135,7 +137,7 @@ nameEl.onkeyup = checkForEnter;
 
 // Save users' score after clicking submit
 
-submitBtn.onclick = saveLeaderboard;
+enterBtn.onclick = saveLeaderboard;
 
 
 // start / restart buttons - Added additional button for re-start following completion of game. Gives users choice between submitting score or restarting at end of game.
