@@ -61,7 +61,6 @@ function quizStart() {
 // Loop for questions - adapted from anonymous source on Stackoverflow to fit this quiz. 
 // Added buttons for questions to loop (var ChoiceBtn)
 
-
   function myQuestions() {
   var currentQuestion = questions[Index];
   var promptEl = document.getElementById("question-words")
@@ -113,7 +112,7 @@ function clockTick() {
     }
 }
 
-// local storage of leaderboard - this can be erased with button
+// leaderboard - this can be erased with button
 
 function saveLeaderboard() {
     var name = nameEl.value;
@@ -125,6 +124,9 @@ function saveLeaderboard() {
       };
       leaderboard.push(newScore);
       window.localStorage.setItem("leaderboard", JSON.stringify(leaderboard));
+
+// Added console log to give score and name.
+      console.log("leaderboard scores", leaderboard);
     }
 }
 
