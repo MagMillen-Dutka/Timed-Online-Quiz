@@ -125,8 +125,8 @@ function saveLeaderboard() {
       leaderboard.push(newScore);
       window.localStorage.setItem("leaderboard", JSON.stringify(leaderboard));
 
-// Added console log to give score and name.
-      console.log("leaderboard scores", leaderboard);
+// Added console log to give score and name - sort orders it in descending order from highest to lowest score.
+      console.log("leaderboard scores", leaderboard.sort((a,b)=> b.score - a.score));
     }
 }
 
