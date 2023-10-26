@@ -17,8 +17,8 @@ function printLeaderboard() {
 
 // Clear previous scores when users click clear 
   function clearLeaderboard() {
-    window.localStorage.removeItem("leaderboard");
-    window.location.reload();
+    localStorage.removeItem("leaderboard");
+    location.reload();
   } document.getElementById("clear").onclick = clearLeaderboard;
   
 printLeaderboard();
