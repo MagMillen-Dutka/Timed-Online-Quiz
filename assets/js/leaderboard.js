@@ -15,7 +15,7 @@ function printLeaderboard() {
     });
 }
 
-// Clear previous scores when users click clear 
+// Clear previous scores when users click clear button -
   function clearLeaderboard() {
     localStorage.removeItem("leaderboard");
     location.reload();
