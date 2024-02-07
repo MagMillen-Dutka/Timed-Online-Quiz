@@ -9,6 +9,18 @@ The code was adapted, re-written or changed to create the functionality to match
 
 It follows the user story and acceptance criteria detailed below.
 
+## Table of Contents:
+* [License](#license)
+* [User Story](#user-story)
+* [Acceptance Criteria](#acceptance-criteria)
+* [Installation Process](#installation-process)
+* [Sources](#sources)
+* [Links](#links)
+* [Screenshots](#screenshots)
+
+## License
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 ## User Story
 
 ```
@@ -33,12 +45,20 @@ WHEN the game is over
 THEN I can save my initials and my score
 ```
 
-## Installation
+## Installation Process
 ```
-n/a
+From the repository in GitHub you will need to follow this route to install the code and associated files on your local computer:
+* Clone the repository.
+* Open the repository in your local CLI (Git Bash, as an example).
+* You can now amend and check the code on your local device.
+* To view, right click on the index.html file within a source code editor, and open in your choice of browser.
 ```
-## Usage
-```
+
+## Sources
+Mag Millen-Dutka [Github](https://github.com/MagMillen-Dutka)
+
+## Links
+
 Please find the source code located here in repository: 
 https://github.com/MagMillen-Dutka/UBHM-04-Web-APIs-02-Challenge
 
@@ -46,14 +66,8 @@ Deployed website can be found here:
 https://magmillen-dutka.github.io/UBHM-04-Web-APIs-02-Challenge/index.html
 
 
-```
-## Credits
-```
-n/a
-```
-## License
-```
-For licensing details please see "LICENSE" details within the repository.
+## Screenshots:
 
-MIT License is used for this project.
-```
+### Figure 1. 
+![main page](/assets/images/Screenshot1.jpg)
+
